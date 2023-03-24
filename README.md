@@ -55,6 +55,7 @@ All Zones will have certasin attributes and resources configured by default. Som
  * Support for per Waf Rule overrides on specific URL's
  * Access Gateway Policies
  * Access Application Policies for Gated Access
+ * Access Gateway Policies for DNS filtering
 
 ## TODO
 * N/A
