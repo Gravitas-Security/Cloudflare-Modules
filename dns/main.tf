@@ -88,7 +88,7 @@ resource "cloudflare_record" "records" {
   ]
 }
 
-resource "cloudflare_certificate_pack" "universal" {
+/*resource "cloudflare_certificate_pack" "universal" {
   zone_id               = cloudflare_zone.domain.id
   type                  = "advanced"
   hosts                 = ["${cloudflare_zone.domain.0.zone}", "*.${cloudflare_zone.domain.0.zone}"]
@@ -102,4 +102,4 @@ resource "cloudflare_certificate_pack" "universal" {
   lifecycle {
     create_before_destroy = true
   }
-}
+}*/
