@@ -6,27 +6,35 @@ variable "zone_id" {
 
 variable "rules" {
   type = list(object({
+    name        = string
     description = string
     paused      = bool
     action      = string
     expression  = string
-    products    = list(string)
+    skipped_products    = optional(list(string))
+    skipped_phases    = optional(list(string))
+    logging = bool
   }))
   default = []
 
   # Ensure we specify only allows action values
   # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/firewall_rule#action
   validation {
-    condition     = can([for rule in var.rules : contains(["block", "challenge", "allow", "js_challenge", "bypass", "log"], rule.action)])
-    error_message = "Only the following action elements are allowed: block, challenge, allow, js_challenge, bypass, log."
+    condition     = can([for rule in var.rules : contains(["block", "challenge", "compress_response", "ddos_dynamic", "ddos_mitigation", "execute", "force_connection_close", "js_challenge", "log", "log_custom_field", "managed_challenge", "redirect", "rewrite", "route", "score", "serve_error", "set_cache_settings", "set_config", "skip"], rule.action)])
+    error_message = "Only the following action elements are allowed: block, challenge, compress_response, ddos_dynamic, ddos_mitigation, execute, force_connection_close, js_challenge, log, log_custom_field, managed_challenge, redirect, rewrite, route, score, serve_error, set_cache_settings, set_config, skip"
   }
 
   # Ensure we specify only allowed products values
   # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/firewall_rule#products
-  validation {
-    condition     = can([for rule in var.rules : [for product in rule.products : contains(["zoneLockdown", "uaBlock", "bic", "hot", "securityLevel", "rateLimit", "waf"], product)]])
-    error_message = "Only the following product elements are allowed: zoneLockdown, uaBlock, bic, hot, securityLevel, rateLimit, waf."
-  }
+  # validation {
+  #   condition     = can([for rule in var.rules : [for product in rule.skipped_products != null : contains(["zoneLockdown", "uaBlock", "bic", "hot", "securityLevel", "rateLimit", "waf"], product)]])
+  #   error_message = "Only the following product elements are allowed: zoneLockdown, uaBlock, bic, hot, securityLevel, rateLimit, waf."
+  # }
+
+  # validation {
+  #   condition     = can([for rule in var.rules : [for phase in rule.skipped_phases != null : contains(["http_ratelimit", "http_request_sbfm", "http_request_firewall_managed"], phase)]])
+  #   error_message = "Only the following product elements are allowed: http_ratelimit, http_request_sbfm, http_request_firewall_managed."
+  # }
   description = <<-DOC
     Provides a Cloudflare record resource.\
     ###############EXAMPLE########################## \

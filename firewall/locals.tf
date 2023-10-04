@@ -1,8 +1,8 @@
 locals {
- rules = { for idx, item in var.rules : var.rules[idx]["expression"] => merge(
+ rules = { for rule, item in var.rules : var.rules[rule]["expression"] => merge(
     item,
     {
-      priority = idx + 1
+      priority = rule + 1
     }
     )
   }

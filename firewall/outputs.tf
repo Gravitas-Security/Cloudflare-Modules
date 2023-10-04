@@ -1,4 +1,4 @@
 output "rules" {
   description = "Created Cloudflare rules for the current zone."
-  value       = cloudflare_ruleset.rulesets
+  value       = cloudflare_ruleset.custom_rulesets
 }
