@@ -33,8 +33,3 @@ variable "cf_waf_action" {
   Valid options are `block`, `challenge`, `managed_challenge`, `js_challenge`, `log`
   DOC
 }
-
-variable "waf_overrides" {
-  description = "List of Cloudflare owasp waf rule objects."
-  type = map
-}

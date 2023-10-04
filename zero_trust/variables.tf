@@ -1,7 +1,6 @@
 # Zone settings
 variable "account_id" {
   type = string
-  default = "123456789abcdefghijklmnop"
 }
 variable "gw_policies" {
   type = map

@@ -12,7 +12,7 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
       id = "efb7b8c949ac4650a09736fc376e9aee"
       overrides {
         action = var.cf_waf_action
-        status = "enabled"
+        enabled = true
       }
       }
     }
@@ -29,7 +29,7 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
           action = var.owasp_waf_settings["action"]
           score_threshold = var.owasp_waf_settings["score_threshold"]
         }
-           status = "enabled"
+           enabled = true
       }
       }
     }
@@ -42,7 +42,7 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
       id = "c2e184081120413c86c3ab7e14069605"
       overrides {
           action = "log"
-          status = "enabled"
+          enabled = true
       }
       }
     }
@@ -52,14 +52,3 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
     ]
   }
 }
-  resource "cloudflare_waf_override" "waf_overrides" {
-  zone_id     = var.zone_id
-  for_each = var.waf_overrides
-  urls = each.value["urls"]
-  rules = each.value["rules"]
-     lifecycle {
-      ignore_changes = [
-        zone_id
-    ]
-  }
-  }

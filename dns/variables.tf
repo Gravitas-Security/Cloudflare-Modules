@@ -1,6 +1,5 @@
 variable "account_id" {
   type = string
-  default = "123456789abcdefghijklmnop"
 }
 # Zone settings
 variable "domain" {}
