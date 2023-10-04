@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/CyberViking949/Cloudflare-Modules/compare/v1.0.0...v1.1.0) (2023-10-04)
+
+
+### Features
+
+* fixing firewall module to for new structure ([6aad283](https://github.com/CyberViking949/Cloudflare-Modules/commit/6aad283bc6f942e9a0fe91c7c2827caac9d955ba))
+
 ## [1.0.0](https://github.com/CyberViking949/Cloudflare-Modules/compare/v0.1.0...v1.0.0) (2023-10-04)
 
 
