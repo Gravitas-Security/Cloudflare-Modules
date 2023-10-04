@@ -45,25 +45,26 @@
 #}
 #}
 
-resource "cloudflare_ruleset" "rulesets" {
+resource "cloudflare_ruleset" "custom_rulesets" {
   for_each = local.rules
 
   zone_id   = var.zone_id
   name      = each.value.name
   description = each.value.description  
   kind    = "zone"
-  phase      = "http_request_firewall_managed"
-  rules { 
-    action = "block"
+  phase      = "http_request_firewall_custom"
+  rules {
+    description = each.value.description  
     expression = each.value.expression
+    action = (each.value.action) == null ? "block" : each.value.action
     enabled = true
+    logging {
+      enabled = try(each.value.logging, null)
+    }
     action_parameters {
-      id = "efb7b8c949ac4650a09736fc376e9aee"
-      overrides {
-        action = "block"
-        enabled = "true"
-      }
-      }
+      products = try(each.value.skipped_products, null)
+      phases   = try(each.value.skipped_phases, null)
+    }
     }
   lifecycle {
       ignore_changes = [

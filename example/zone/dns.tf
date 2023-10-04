@@ -1,9 +1,10 @@
 module "dns_zones" {
-  source = "../../../modules/dns"
+  source = "github.com/cyberviking949/cloudflare-modules//dns?ref=v1.0.0"
 
   domain = "example.com"
   type   = "full"
   plan   = "pro"
+  account_id = "ekgvijaelroijvhneadsloikvhnaerdflohijv"
 
 
   records = {
