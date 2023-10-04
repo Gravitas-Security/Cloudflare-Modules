@@ -1,3 +1,8 @@
+variable "account_id" {
+  description   = "Cloudflare Account_ID"
+  type          = string
+}
+
 variable "users" {
   description   = "map of users - roles"
   type          = map(list(string))
