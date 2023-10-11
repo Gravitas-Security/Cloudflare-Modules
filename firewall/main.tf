@@ -16,14 +16,14 @@ resource "cloudflare_ruleset" "custom_rulesets" {
     action = "block"
     enabled = true
     }
-    for_each = local.rules
+  for_each = local.rules
   rules {
     description = each.value.description  
     expression = each.value.expression
     action = (each.value.action) == null ? "block" : each.value.action
     enabled = true
     logging {
-      enabled = try(each.value.logging, null)
+      enabled = (each.value.logging) == null ? "false" : each.value.action
     }
     action_parameters {
       products = try(each.value.skipped_products, null)

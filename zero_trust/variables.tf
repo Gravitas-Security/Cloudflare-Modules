@@ -3,7 +3,22 @@ variable "account_id" {
   type = string
 }
 variable "gw_policies" {
-  type = map
+  type = list(object({
+    name   = string
+    description  = string
+    action = optional(string)
+    enabled = optional(bool)
+    filters = list(string)
+    traffic  = string 
+    rule_settings = optional(object({
+      block_page_enabled = optional(bool)
+      block_page_reason = optional(string)
+      override_ips = optional(list(string))
+      override_host = optional(string)
+      insecure_disable_dnssec_validation = optional(bool)
+    }))
+  }))
+  default = []
 }
 /*variable "dns_categories" {
   description   = "dns category ids"
