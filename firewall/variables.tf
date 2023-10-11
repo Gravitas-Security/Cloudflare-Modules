@@ -8,12 +8,11 @@ variable "rules" {
   type = list(object({
     name        = string
     description = string
-    paused      = bool
     action      = string
     expression  = string
     skipped_products    = optional(list(string))
     skipped_phases    = optional(list(string))
-    logging = bool
+    logging    = optional(bool)
   }))
   default = []
 

@@ -1,11 +1,11 @@
 resource "cloudflare_teams_rule" "gateway_policies" {
-  for_each = var.gw_policies
+  for_each = { for gw in var.gw_policies : gw.name => gw }
   account_id    = var.account_id
   name = each.value.name
   description = each.value.description
-  precedence = each.value.precedence
-  enabled = each.value.enabled
-  action = each.value.action
+  precedence = index(var.gw_policies, each.value) + 1
+  enabled = (each.value.enabled) == null ? true : each.value.action
+  action = (each.value.action) == null ? "block" : each.value.action
   filters = each.value.filters
   traffic = each.value.traffic
   dynamic "rule_settings" {

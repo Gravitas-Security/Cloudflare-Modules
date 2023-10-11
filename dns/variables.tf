@@ -18,10 +18,10 @@ variable "type" {
 
 # Other A, CNAME, MX, TXT records
 variable "records" {
-  validation {
-    condition     = can([for record in var.records : contains(["A", "AAAA", "CNAME", "TXT", "SRV", "MX"], record.type)])
-    error_message = "Only the following action elements are allowed: A, AAAA, CNAME, MX, SRV, TXT."
-  }
+  # validation {
+  #   condition     = can([for record in var.records : contains(["A", "AAAA", "CNAME", "TXT", "SRV", "MX"], record.type)])
+  #   error_message = "Only the following action elements are allowed: A, AAAA, CNAME, MX, SRV, TXT."
+  # }
   description = <<-DOC
     Provides a Cloudflare record resource.\
     ###############EXAMPLE########################## \
