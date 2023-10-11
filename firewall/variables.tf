@@ -1,18 +1,18 @@
 variable "zone_id" {
   description = "Cloudflare domain to apply rules for."
   type        = string
-  default = "zone_id"
+  default     = "zone_id"
 }
 
 variable "rules" {
   type = list(object({
-    name        = string
-    description = string
-    action      = string
-    expression  = string
-    skipped_products    = optional(list(string))
-    skipped_phases    = optional(list(string))
-    logging    = optional(bool)
+    name             = string
+    description      = string
+    action           = string
+    expression       = string
+    skipped_products = optional(list(string))
+    skipped_phases   = optional(list(string))
+    logging          = optional(bool)
   }))
   default = []
 

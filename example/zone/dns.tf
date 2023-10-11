@@ -1,9 +1,9 @@
 module "dns_zones" {
   source = "github.com/cyberviking949/cloudflare-modules//dns?ref=v1.0.0"
 
-  domain = "example.com"
-  type   = "full"
-  plan   = "pro"
+  domain     = "example.com"
+  type       = "full"
+  plan       = "pro"
   account_id = "ekgvijaelroijvhneadsloikvhnaerdflohijv"
 
 
@@ -43,15 +43,15 @@ module "dns_zones" {
       type  = "TXT"
     }
     "selector1._domainkey" = {
-      name  = "selector1._domainkey"
-      value = "stuff.onmicrosoft.com"
-      type  = "CNAME"
+      name    = "selector1._domainkey"
+      value   = "stuff.onmicrosoft.com"
+      type    = "CNAME"
       proxied = false
     }
     "selector2._domainkey" = {
-      name  = "selector2._domainkey"
-      value = "stuff.onmicrosoft.com"
-      type  = "CNAME"
+      name    = "selector2._domainkey"
+      value   = "stuff.onmicrosoft.com"
+      type    = "CNAME"
       proxied = false
     }
   }

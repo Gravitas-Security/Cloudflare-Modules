@@ -1,18 +1,18 @@
 variable "zone_id" {
   description = "Cloudflare domain to apply rules for."
   type        = string
-  default = "zone_id"
+  default     = "zone_id"
 }
 
 variable "owasp_waf_settings" {
   type = object({
-    score_threshold   = number
-    action            = string
+    score_threshold = number
+    action          = string
   })
   default = {
-      score_threshold = 40,
-      action          = "log"
-    }
+    score_threshold = 40,
+    action          = "log"
+  }
   description = <<-DOC
   Allows for overriding of default values in the Cloudflare OWASP package\
   #########################EXAMPLE####################\
@@ -24,7 +24,7 @@ variable "owasp_waf_settings" {
   DOC    
 }
 variable "cf_waf_action" {
-  default = "log"
+  default     = "log"
   description = <<-DOC
   Allows for overriding of default values in the Cloudflare WAF package\
   #########################EXAMPLE####################\
