@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/CyberViking949/Cloudflare-Modules/compare/v2.0.0...v2.0.1) (2023-10-11)
+
+
+### Bug Fixes
+
+* format code ([49e08dc](https://github.com/CyberViking949/Cloudflare-Modules/commit/49e08dc5947db4a4e95ca4da4225753004ebda08))
+
 ## [2.0.0](https://github.com/CyberViking949/Cloudflare-Modules/compare/v1.1.0...v2.0.0) (2023-10-11)
 
 
