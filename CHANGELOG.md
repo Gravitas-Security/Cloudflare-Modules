@@ -6,6 +6,7 @@
 ### Features
 
 * adding module for lists ([dce7092](https://github.com/CyberViking949/Cloudflare-Modules/commit/dce709206a447662cdd0bfa79e31b0c3c659c85b))
+* generating release ([4be0bba](https://github.com/CyberViking949/Cloudflare-Modules/commit/4be0bbab7ebaac4f4999cf4d90bac47f23c93766))
 
 ## [2.0.2](https://github.com/CyberViking949/Cloudflare-Modules/compare/v2.0.1...v2.0.2) (2023-10-11)
 
