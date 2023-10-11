@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/CyberViking949/Cloudflare-Modules/compare/v1.1.0...v2.0.0) (2023-10-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Updating all modules and modernizing
+
+### Features
+
+* Updating all modules and modernizing ([f8ad9e8](https://github.com/CyberViking949/Cloudflare-Modules/commit/f8ad9e81a2d8af252c11c4d7aa19b9bdb4359773))
+* updating firewall module custom ruleset ([f2ab07e](https://github.com/CyberViking949/Cloudflare-Modules/commit/f2ab07ed5e003ec3659b56844bfdedc0d1b7c0e5))
+
 ## [1.1.0](https://github.com/CyberViking949/Cloudflare-Modules/compare/v1.0.0...v1.1.0) (2023-10-04)
 
 
