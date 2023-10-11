@@ -1,14 +1,14 @@
 # Zone creation
 resource "cloudflare_zone" "domain" {
   account_id = var.account_id
-  zone  = var.domain
-  plan  = var.plan
-  type  = var.type
+  zone       = var.domain
+  plan       = var.plan
+  type       = var.type
 }
 
 # Zone settings
 resource "cloudflare_zone_settings_override" "domain_settings" {
-  zone_id = cloudflare_zone.domain.id
+  zone_id    = cloudflare_zone.domain.id
   depends_on = [cloudflare_zone.domain]
   settings {
     min_tls_version          = "1.2"
@@ -20,13 +20,13 @@ resource "cloudflare_zone_settings_override" "domain_settings" {
     brotli                   = "off"
     true_client_ip_header    = "off"
     security_header {
-            enabled = true
-        }
+      enabled = true
+    }
   }
 }
 
 resource "cloudflare_zone_dnssec" "gravitas_sec_com" {
-    zone_id = cloudflare_zone.domain.id
+  zone_id = cloudflare_zone.domain.id
 }
 
 # Other A, CNAME, MX, TXT records

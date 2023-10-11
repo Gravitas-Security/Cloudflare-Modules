@@ -1,7 +1,7 @@
 resource "cloudflare_list" "blacklist" {
-  account_id = "abcdefghijklmnop"
-  name = "blacklist"
-  kind = "ip"
+  account_id  = "abcdefghijklmnop"
+  name        = "blacklist"
+  kind        = "ip"
   description = "List for blocking bad IP's"
 
   /*item {

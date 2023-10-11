@@ -93,8 +93,8 @@ resource "cloudflare_page_rule" "page_rules" {
     waf                         = lookup(each.value["actions"], "waf", null)
   }
   lifecycle {
-      ignore_changes = [
-        zone_id
+    ignore_changes = [
+      zone_id
     ]
   }
 }
