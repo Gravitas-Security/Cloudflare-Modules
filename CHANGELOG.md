@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/CyberViking949/Cloudflare-Modules/compare/v2.1.0...v2.2.0) (2023-10-19)
+
+
+### Features
+
+* making account_id, zone_id, & roles dymanic ([dfd2919](https://github.com/CyberViking949/Cloudflare-Modules/commit/dfd29191cd30394ecc0e7514ec261e3a03174361))
+
 ## [2.1.0](https://github.com/CyberViking949/Cloudflare-Modules/compare/v2.0.2...v2.1.0) (2023-10-11)
 
 
