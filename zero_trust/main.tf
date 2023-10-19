@@ -1,6 +1,10 @@
+data "cloudflare_accounts" "account" {
+  name = var.account_name
+}
+
 resource "cloudflare_teams_rule" "gateway_policies" {
   for_each    = { for gw in var.gw_policies : gw.name => gw }
-  account_id  = var.account_id
+  account_id  = data.cloudflare_accounts.account.accounts.0.id
   name        = each.value.name
   description = each.value.description
   precedence  = index(var.gw_policies, each.value) + 1

@@ -1,13 +1,12 @@
-variable "zone_id" {
+variable "domain" {
   description = "Cloudflare domain to apply rules for."
   type        = string
-  default     = "zone_id"
 }
 
 variable "owasp_waf_settings" {
   type = object({
-    score_threshold = number
-    action          = string
+    score_threshold = optional(number)
+    action          = optional(string)
   })
   default = {
     score_threshold = 40,

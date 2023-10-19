@@ -1,7 +1,8 @@
 # Zone settings
-variable "account_id" {
+variable "account_name" {
   type = string
 }
+
 variable "gw_policies" {
   type = list(object({
     name        = string

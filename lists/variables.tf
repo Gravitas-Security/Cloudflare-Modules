@@ -1,13 +1,13 @@
-variable "account_id" {
-  description = "Cloudflare Account_ID"
+variable "account_name" {
+  description = "Cloudflare Account name"
   type        = string
 }
 
 variable "account_lists" {
   type = list(object({
-    name             = string
-    description      = string
-    kind           = string
+    name        = string
+    description = string
+    kind        = string
     item = list(object({
       ip = optional(string)
       redirect = optional(list(object({
@@ -22,11 +22,11 @@ variable "account_lists" {
       asn = optional(number)
       hostname = optional(list(object({
         url_hostname = string
-    })))
+      })))
       comment = string
     }))
   }))
-  default = []
+  default     = []
   description = <<DOC
   ### IP List Example ###\
   {\
@@ -88,12 +88,12 @@ variable "account_lists" {
 
 variable "teams_lists" {
   type = list(object({
-    name             = string
-    description      = string
-    type           = string
-    items = list(string)
+    name        = string
+    description = string
+    type        = string
+    items       = list(string)
   }))
-  default = []
+  default     = []
   description = <<DOC
   ### DOMAIN List Example ###\
   {\

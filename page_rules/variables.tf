@@ -1,7 +1,6 @@
-variable "zone_id" {
+variable "domain" {
   description = "Cloudflare domain to apply rules for."
   type        = string
-  default     = "zone_id"
 }
 variable "page_rule_configs" {
   default     = []
