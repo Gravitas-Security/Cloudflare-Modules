@@ -1,6 +1,12 @@
+data "cloudflare_zones" "zones" {
+  filter {
+    name = var.domain
+  }
+}
+
 resource "cloudflare_ruleset" "cf_managed_ruleset" {
   name    = "Cloudflare Managed Ruleset"
-  zone_id = var.zone_id
+  zone_id = data.cloudflare_zones.zones.zones[0].id
   kind    = "zone"
   phase   = "http_request_firewall_managed"
   rules {
@@ -11,7 +17,7 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
     action_parameters {
       id = "efb7b8c949ac4650a09736fc376e9aee"
       overrides {
-        action  = var.cf_waf_action
+        action  = var.cf_waf_action == null ? "block" : var.cf_waf_action
         enabled = true
       }
     }
@@ -26,8 +32,8 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
       overrides {
         rules {
           id              = "6179ae15870a4bb7b2d480d4843b323c"
-          action          = var.owasp_waf_settings["action"]
-          score_threshold = var.owasp_waf_settings["score_threshold"]
+          action          = var.owasp_waf_settings["action"] == null ? "block" : var.owasp_waf_settings["action"]
+          score_threshold = var.owasp_waf_settings["score_threshold"] == null ? 40 : var.owasp_waf_settings["score_threshold"]
         }
         enabled = true
       }

@@ -1,6 +1,11 @@
+data "cloudflare_zones" "zones" {
+  filter {
+    name = var.domain
+  }
+}
 
 resource "cloudflare_ruleset" "custom_rulesets" {
-  zone_id     = var.zone_id
+  zone_id     = data.cloudflare_zones.zones.zones[0].id
   name        = "custom default rulesets"
   description = "custom default rulesets"
   kind        = "zone"

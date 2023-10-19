@@ -1,5 +1,11 @@
+data "cloudflare_zones" "zones" {
+  filter {
+    name = var.domain
+  }
+}
+
 resource "cloudflare_page_rule" "page_rules" {
-  zone_id  = var.zone_id
+  zone_id  = data.cloudflare_zones.zones.zones[0].id
   for_each = local.normalize_page_rule_configs
   target   = each.value["target"]
 

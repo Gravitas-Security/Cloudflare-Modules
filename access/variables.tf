@@ -18,11 +18,6 @@ variable "group" {
   default = []
 }
 
-variable "zone_id" {
-  type    = string
-  default = "zone_id"
-}
-
 variable "domain" {
   type    = string
   default = "domain"

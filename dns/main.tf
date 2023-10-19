@@ -1,6 +1,10 @@
+data "cloudflare_accounts" "account" {
+  name = var.account_name
+}
+
 # Zone creation
 resource "cloudflare_zone" "domain" {
-  account_id = var.account_id
+  account_id = data.cloudflare_accounts.account.accounts.0.id
   zone       = var.domain
   plan       = var.plan
   type       = var.type
