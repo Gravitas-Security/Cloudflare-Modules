@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.3.0...v2.3.1) (2023-10-31)
+
+
+### Bug Fixes
+
+* fixing secret storage retrieval ([1f97022](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/1f97022d8e5295e978ec23c4251291405d22260f))
+
 ## [2.3.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.2.0...v2.3.0) (2023-10-31)
 
 
