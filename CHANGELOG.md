@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.3.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.2.0...v2.3.0) (2023-10-31)
+
+
+### Features
+
+* adding notification module ([4526f7a](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/4526f7a8990c35637d5ecff797086d80c9e09eb0))
+* adding notification module ([7e617cb](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/7e617cbb87bd991de8b177bc3de0e577da9f0cd9))
+
 ## [2.2.0](https://github.com/CyberViking949/Cloudflare-Modules/compare/v2.1.0...v2.2.0) (2023-10-19)
 
 
