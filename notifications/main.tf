@@ -72,10 +72,15 @@ data "aws_secretsmanager_secrets" "secret" {
   }
 }
 
+data "aws_secretsmanager_secret_version" "secret_value" {
+  for_each = data.aws_secretsmanager_secrets.secret
+  secret_id = data.aws_secretsmanager_secrets.secret[each.key].id
+  }
+
 resource "cloudflare_notification_policy_webhooks" "webhooks" {
   for_each = var.webhooks
   account_id = data.cloudflare_accounts.account.accounts[0].id
   name       = each.key
   url        = each.value.url
-  secret     = each.value.secret #Exact Name of the secret in AWS Secrets manager
+  secret     = data.aws_secretsmanager_secret_version.secret_value[each.key].secret_string
 }
