@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.3.1...v2.4.0) (2023-11-06)
+
+
+### Features
+
+* adding healthchecks to access and standalone ([c98f68f](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/c98f68f1712b68b1108a96ee4b87c11864f0eb49))
+
 ## [2.3.1](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.3.0...v2.3.1) (2023-10-31)
 
 
