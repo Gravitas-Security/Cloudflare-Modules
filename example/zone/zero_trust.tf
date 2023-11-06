@@ -1,7 +1,7 @@
 module "zero_trust" {
   source = "github.com/cyberviking949/cloudflare-modules//zero_trust?ref=v1.0.0"
 
-  account_id = "390847390742ufyregeirkuhvleirujgvh"
+  account_name = "account name"
 
   gw_policies = {
     "dns_filter" = {

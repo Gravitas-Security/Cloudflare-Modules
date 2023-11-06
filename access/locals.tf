@@ -1,4 +1,8 @@
-# locals {
-#   app_keys = keys(var.application)
-#   app_key_to_index = { for app, app_key in local.app_keys : app_key => app }
-# }
+locals {
+  apps_with_hc = [for app in var.application : {
+    name         = app.name
+    hc_path      = app.hc_path
+    hc_body      = app.hc_body
+    hc_codes     = app.hc_codes
+  } if app.hc_path != null]
+}

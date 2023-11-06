@@ -1,7 +1,7 @@
 
 module "firewall" {
   source     = "github.com/cyberviking949/cloudflare-modules//firewall?ref=v1.0.0"
-  zone_id    = module.dns_zones.zone_id
+  domain             = "zone name"
   depends_on = [module.dns_zones]
   rules = [
     {

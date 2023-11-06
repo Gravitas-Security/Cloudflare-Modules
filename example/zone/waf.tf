@@ -1,6 +1,6 @@
 module "waf_rulesets" {
   source     = "github.com/cyberviking949/cloudflare-modules//waf_rulesets?ref=v1.0.0"
-  zone_id    = module.dns_zones.zone_id
+  domain             = "zone name"
   depends_on = [module.dns_zones]
 
   owasp_waf_settings = {

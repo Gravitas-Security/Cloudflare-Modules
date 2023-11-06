@@ -1,6 +1,6 @@
 module "notification_policies" {
   source = "github.com/Gravitas-Security/cloudflare-modules//notifications?ref=v2.3.0"
-  account_name = "Gravitas Security"
+  account_name = "account name"
 
   notification_policies = {
     "origin_errors" = {
