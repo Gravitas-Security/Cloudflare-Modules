@@ -15,16 +15,16 @@ variable "healthchecks" {
     retries     = optional(number)
     method      = optional(string)
     port        = optional(number)
-    headers     = optional(map(object({
-      header  = string
+    headers = optional(map(object({
+      header = string
       values = list(string)
     })))
-    regions     = optional(list(string))
-    follow_redirects = optional(bool)
-    expected_body = optional(string)
-    expected_codes = optional(list(number))
-    allow_insecure = optional(bool)
-    enabled      = optional(bool)
+    regions               = optional(list(string))
+    follow_redirects      = optional(bool)
+    expected_body         = optional(string)
+    expected_codes        = optional(list(number))
+    allow_insecure        = optional(bool)
+    enabled               = optional(bool)
     consecutive_successes = optional(number)
   }))
 }
