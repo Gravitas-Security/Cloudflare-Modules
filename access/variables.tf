@@ -4,10 +4,10 @@ variable "application" {
     name     = string
     group    = string
     decision = optional(string)
-    hc_body = optional(string)
+    hc_body  = optional(string)
     hc_codes = optional(list(string))
-    hc_path = optional(string)
-    hc_port = optional(number)
+    hc_path  = optional(string)
+    hc_port  = optional(number)
   }))
   default = []
 }

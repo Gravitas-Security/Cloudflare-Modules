@@ -1,6 +1,6 @@
 module "access_app" {
   source     = "github.com/cyberviking949/cloudflare-modules//access?ref=v1.0.0"
-  domain             = "zone name"
+  domain     = "zone name"
   depends_on = [module.dns_zones]
 
 

@@ -1,6 +1,6 @@
 module "page_rules" {
   source     = "github.com/cyberviking949/cloudflare-modules//page_rules?ref=v1.0.0"
-  domain             = "zone name"
+  domain     = "zone name"
   depends_on = [module.dns_zones]
   #  page_rule_configs = [
   #    {
