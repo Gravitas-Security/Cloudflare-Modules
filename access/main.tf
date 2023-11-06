@@ -37,7 +37,7 @@ resource "cloudflare_healthcheck" "app_healthchecks" {
   port                  = 443
   method                = "GET"
   expected_body         = local.apps_with_hc[count.index].hc_body != null ? local.apps_with_hc[count.index].hc_body : "alive"
-  expected_codes        = local.apps_with_hc[count.index].hc_codes != null ? local.apps_with_hc[count.index].hc_codes : ["2xx"]
+  expected_codes        = local.apps_with_hc[count.index].hc_codes != null ? local.apps_with_hc[count.index].hc_codes : ["200"]
   follow_redirects      = true
   allow_insecure        = false
   timeout               = 10
