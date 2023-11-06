@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.0...v2.4.1) (2023-11-06)
+
+
+### Bug Fixes
+
+* formatting ([85d7c3b](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/85d7c3b22c2232fbb5be9ea83eb98cabb775f4e4))
+
 ## [2.4.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.3.1...v2.4.0) (2023-11-06)
 
 
