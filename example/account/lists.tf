@@ -1,6 +1,6 @@
 module "lists" {
   source     = "github.com/cyberviking949/cloudflare-modules//lists?ref=v2.1.0"
-  account_id = "dfaoivhreiuhveriuhjnvreflaoihunverf"
+  account_name = "account name"
 
   account_lists = [
     {

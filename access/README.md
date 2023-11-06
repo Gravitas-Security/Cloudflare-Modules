@@ -24,6 +24,8 @@ module "access_app" {
     {
       name  = "test"
       group = "test_group"
+      hc_path = "/health"
+      hc_port = 8443
       }
   ]
 }
@@ -38,6 +40,7 @@ module "access_app" {
   - app is the url
   - policy includes the requirements of the group
   - default `Allow` and failure will result in block
+  - creates a healthcheck for each app if `hc_path` is defined
 4. Precedence is set by order of apps. 1st = 1, 2nd = 2, etc 
   - reordering will result in a destroy and reapply of all subsequent rules
 
