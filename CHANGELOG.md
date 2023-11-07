@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.3](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.2...v2.4.3) (2023-11-07)
+
+
+### Bug Fixes
+
+* submodule ([ca99ce7](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/ca99ce7100ff74a1c9ab49ce7a6db5ec968dbce9))
+
 ## [2.4.2](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.1...v2.4.2) (2023-11-06)
 
 
