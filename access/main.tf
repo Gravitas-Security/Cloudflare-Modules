@@ -34,7 +34,7 @@ resource "cloudflare_healthcheck" "app_healthchecks" {
   address             = cloudflare_access_application.access_app[each.key].domain
   path                = each.value.hc_path
   type                = "HTTPS"
-  port                = 443
+  port                = each.value.hc_port != null ? each.value.hc_port : 443
   method              = "GET"
   expected_body       = each.value.hc_body != null ? each.value.hc_body : "alive"
   expected_codes      = each.value.hc_codes != null ? each.value.hc_codes : ["200"]
