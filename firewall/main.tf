@@ -17,13 +17,27 @@ resource "cloudflare_ruleset" "custom_rulesets" {
     enabled     = true
   }
   rules {
+    description = "allow CF bots"
+    expression  = "(ip.geoip.asnum in {13335})"
+    action      = "skip"
+    enabled     = true
+    action_parameters {
+      ruleset = "current"
+      phases   = ["http_request_firewall_managed"]
+    }
+    logging {
+      enabled = true
+    }
+  }
+  rules {
     description = "block bots"
     expression  = "(cf.client.bot)"
     action      = "block"
     enabled     = true
   }
-  for_each = local.rules
-  rules {
+  dynamic rules {
+    for_each = local.rules
+    content {
     description = each.value.description
     expression  = each.value.expression
     action      = (each.value.action) == null ? "block" : each.value.action
@@ -35,6 +49,7 @@ resource "cloudflare_ruleset" "custom_rulesets" {
       products = try(each.value.skipped_products, null)
       phases   = try(each.value.skipped_phases, null)
     }
+  }
   }
   lifecycle {
     ignore_changes = [
