@@ -26,7 +26,7 @@ resource "cloudflare_ruleset" "custom_rulesets" {
       phases   = ["http_request_firewall_managed"]
     }
     logging {
-      enabled = true
+      enabled = false
     }
   }
   rules {
