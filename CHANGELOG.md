@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.6](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.5...v2.4.6) (2023-11-07)
+
+
+### Bug Fixes
+
+* hc port definable ([574dfbe](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/574dfbe3587ffa6d53f618cec1c4829780d8118f))
+
 ## [2.4.5](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.4...v2.4.5) (2023-11-07)
 
 
