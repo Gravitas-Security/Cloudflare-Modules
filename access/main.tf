@@ -28,25 +28,26 @@ resource "cloudflare_access_application" "access_app" {
 }
 
 resource "cloudflare_healthcheck" "app_healthchecks" {
-  count                 = length(local.apps_with_hc)
-  zone_id               = data.cloudflare_zones.zones.zones[0].id
-  name                  = "${local.apps_with_hc[count.index].name}_Healthcheck"
-  address               = cloudflare_access_application.access_app[local.apps_with_hc[count.index].name].domain
-  path                  = local.apps_with_hc[count.index].hc_path
-  type                  = "HTTPS"
-  port                  = 443
-  method                = "GET"
-  expected_body         = local.apps_with_hc[count.index].hc_body != null ? local.apps_with_hc[count.index].hc_body : "alive"
-  expected_codes        = local.apps_with_hc[count.index].hc_codes != null ? local.apps_with_hc[count.index].hc_codes : ["200"]
-  follow_redirects      = true
-  allow_insecure        = false
-  timeout               = 10
-  retries               = 3
-  interval              = 60
-  consecutive_fails     = 3
+  for_each            = local.apps_with_hc
+  zone_id             = data.cloudflare_zones.zones.zones[0].id
+  name                = "${each.key}.${var.domain} Healthcheck"
+  address             = cloudflare_access_application.access_app[each.key].domain
+  path                = each.value.hc_path
+  type                = "HTTPS"
+  port                = 443
+  method              = "GET"
+  expected_body       = each.value.hc_body != null ? each.value.hc_body : "alive"
+  expected_codes      = each.value.hc_codes != null ? each.value.hc_codes : ["200"]
+  follow_redirects    = true
+  allow_insecure      = false
+  timeout             = 10
+  retries             = 3
+  interval            = 60
+  consecutive_fails   = 3
   consecutive_successes = 2
-  depends_on            = [cloudflare_access_application.access_app]
+  depends_on          = [cloudflare_access_application.access_app]
 }
+
 
 
 resource "cloudflare_access_policy" "app_policy" {
