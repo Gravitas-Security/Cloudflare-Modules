@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.7](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.6...v2.4.7) (2023-11-07)
+
+
+### Bug Fixes
+
+* firewall bot rule ([80dd7b3](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/80dd7b305c4f63b5a580da133018a5b5996f3abf))
+
 ## [2.4.6](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.5...v2.4.6) (2023-11-07)
 
 
