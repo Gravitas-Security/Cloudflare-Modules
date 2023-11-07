@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.5.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.7...v2.5.0) (2023-11-07)
+
+
+### Features
+
+* update provider ([30f9a5a](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/30f9a5a660b3fa50e5fbd380c0266b11d919a210))
+* updating firewall module ([422b381](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/422b3818fdd303a6c83bf84b056c5ded8165a7e9))
+
 ## [2.4.7](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.6...v2.4.7) (2023-11-07)
 
 
