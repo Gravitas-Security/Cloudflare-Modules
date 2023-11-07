@@ -30,7 +30,7 @@ resource "cloudflare_access_application" "access_app" {
 resource "cloudflare_healthcheck" "app_healthchecks" {
   for_each            = local.apps_with_hc
   zone_id             = data.cloudflare_zones.zones.zones[0].id
-  name                = "${each.key}.${var.domain} Healthcheck"
+  name                = "${each.key}.${var.domain}_Healthcheck"
   address             = cloudflare_access_application.access_app[each.key].domain
   path                = each.value.hc_path
   type                = "HTTPS"
