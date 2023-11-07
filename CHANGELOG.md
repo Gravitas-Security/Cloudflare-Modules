@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.5](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.4...v2.4.5) (2023-11-07)
+
+
+### Bug Fixes
+
+* hc names ([ed1d727](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/ed1d7277ee0c245947db4beda844d3c90ab324e1))
+
 ## [2.4.4](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.3...v2.4.4) (2023-11-07)
 
 
