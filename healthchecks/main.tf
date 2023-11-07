@@ -17,7 +17,7 @@ resource "cloudflare_healthcheck" "healthchecks" {
   method           = each.value.method != null ? each.value.method : "GET"
   path             = each.value.path
   expected_body    = each.value.expected_body != null ? each.value.expected_body : "alive"
-  expected_codes   = each.value.expected_codes != null ? each.value.expected_codes : ["2xx"]
+  expected_codes   = each.value.expected_codes != null ? each.value.expected_codes : ["200"]
   follow_redirects = each.value.follow_redirects != null ? each.value.follow_redirects : true
   allow_insecure   = false
   dynamic "header" {
@@ -27,7 +27,7 @@ resource "cloudflare_healthcheck" "healthchecks" {
       values = header.value
     }
   }
-  timeout               = each.value.timeout != null ? each.value.timeout : 10
+  timeout               = each.value.timeout != null ? each.value.timeout : 60
   retries               = each.value.retries != null ? each.value.retries : 3
   interval              = each.value.interval != null ? each.value.interval : 10
   consecutive_fails     = each.value.threshold != null ? each.value.threshold : 3
