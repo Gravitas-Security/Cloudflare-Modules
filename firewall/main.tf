@@ -18,7 +18,7 @@ resource "cloudflare_ruleset" "custom_rulesets" {
   }
   rules {
     description = "block bots"
-    expression  = "cf.client.bot"
+    expression  = "(cf.client.bot)"
     action      = "block"
     enabled     = true
   }
