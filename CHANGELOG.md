@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.2](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.5.1...v2.5.2) (2023-11-20)
+
+
+### Bug Fixes
+
+* ignoring changes on zone_id ([df84940](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/df84940338d75b9a0ed4cc49d93314b54cc4e8dd))
+
 ## [2.5.1](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.5.0...v2.5.1) (2023-11-20)
 
 
