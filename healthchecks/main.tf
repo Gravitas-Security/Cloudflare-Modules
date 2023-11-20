@@ -33,4 +33,9 @@ resource "cloudflare_healthcheck" "healthchecks" {
   consecutive_fails     = each.value.threshold != null ? each.value.threshold : 3
   consecutive_successes = each.value.consecutive_successes != null ? each.value.consecutive_successes : 2
 
+  lifecycle {
+    ignore_changes = [
+      zone_id
+    ]
+  }
 }
