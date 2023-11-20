@@ -38,16 +38,16 @@ resource "cloudflare_ruleset" "custom_rulesets" {
   dynamic rules {
     for_each = local.rules
     content {
-    description = each.value.description
-    expression  = each.value.expression
-    action      = (each.value.action) == null ? "block" : each.value.action
+    description = rules.value["description"]
+    expression  = rules.value["expression"]
+    action      = (rules.value["action"]) == null ? "block" : rules.value["action"]
     enabled     = true
     logging {
-      enabled = (each.value.logging) == null ? "false" : each.value.action
+      enabled = (rules.value["logging"]) == null ? "false" : rules.value["action"]
     }
     action_parameters {
-      products = try(each.value.skipped_products, null)
-      phases   = try(each.value.skipped_phases, null)
+      products = try(rules.value["skipped_products"], null)
+      phases   = try(rules.value["skipped_phases"], null)
     }
   }
   }
