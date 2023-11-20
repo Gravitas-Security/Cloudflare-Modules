@@ -46,6 +46,10 @@ resource "cloudflare_healthcheck" "app_healthchecks" {
   consecutive_fails   = 3
   consecutive_successes = 2
   depends_on          = [cloudflare_access_application.access_app]
+
+lifecycle {
+  ignore_changes = [ zone_id ]
+}
 }
 
 
