@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.1](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.5.0...v2.5.1) (2023-11-20)
+
+
+### Bug Fixes
+
+* fixing dynamic rules ([80070b0](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/80070b081d0cd6bc93e8338c8778dc0804b0f830))
+
 ## [2.5.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.4.7...v2.5.0) (2023-11-07)
 
 
