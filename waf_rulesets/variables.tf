@@ -3,6 +3,27 @@ variable "domain" {
   type        = string
 }
 
+variable "owasp_rule_overrides" {
+  description = "Allows for overriding of default values in the Cloudflare OWASP package"
+  type        = list(object({
+    rules              = string
+    action          = optional(string)
+    expression = string
+    score_threshold = optional(number)
+    description = string
+  }))
+}
+
+variable "cf_rule_overrides" {
+  description = "Allows for overriding of default values in the Cloudflare OWASP package"
+  type        = list(object({
+    rules              = string
+    action          = optional(string)
+    expression = string
+    description = string
+  }))
+}
+
 variable "owasp_waf_settings" {
   type = object({
     score_threshold = optional(number)
