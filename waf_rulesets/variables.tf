@@ -6,7 +6,7 @@ variable "domain" {
 variable "owasp_rule_overrides" {
   description = "Allows for overriding of default values in the Cloudflare OWASP package"
   type        = list(object({
-    rules              = string
+    rules              = list(string)
     action          = optional(string)
     expression = string
     score_threshold = optional(number)

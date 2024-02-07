@@ -78,7 +78,7 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
     content {
       action = rules.value.action == null ? "skip" : rules.value.action
       action_parameters {
-        rules = { "4814384a9e5d4991b9815dcfc25d2f1f" = local.cloudflare_owasp_ruleset[rules.value.rules]}
+        rules = { "4814384a9e5d4991b9815dcfc25d2f1f" = join(",", [for id in rules.value.rules : local.cloudflare_owasp_ruleset[id]])}
       }
       description = rules.value.description
       expression = rules.value.expression
@@ -92,7 +92,7 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
     content {
       action = rules.value.action == null ? "skip" : rules.value.action
       action_parameters {
-        rules = { "efb7b8c949ac4650a09736fc376e9aee" = local.cf_managed_ruleset[rules.value.rules]}
+        rules = { "efb7b8c949ac4650a09736fc376e9aee" = join(",", [for id in rules.value.rules : local.cf_managed_ruleset[id]])}
       }
       description = rules.value.description
       expression = rules.value.expression
