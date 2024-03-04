@@ -4,6 +4,27 @@ data "cloudflare_zones" "zones" {
   }
 }
 
+# data "cloudflare_rulesets" "all_rulesets" {
+#   zone_id = data.cloudflare_zones.zones.zones[0].id
+#   include_rules = true
+# }
+
+data "cloudflare_rulesets" "owasp_rulesets" {
+  zone_id = data.cloudflare_zones.zones.zones[0].id
+  filter {
+    name = "Cloudflare OWASP Core Ruleset"
+  }
+  include_rules = true
+}
+
+data "cloudflare_rulesets" "cf_managed_rulesets" {
+  zone_id = data.cloudflare_zones.zones.zones[0].id
+  filter {
+    name = "Cloudflare Managed Ruleset"
+  }
+  include_rules = true
+}
+
 resource "cloudflare_ruleset" "cf_managed_ruleset" {
   name    = "Cloudflare Managed Ruleset"
   zone_id = data.cloudflare_zones.zones.zones[0].id
@@ -50,6 +71,34 @@ resource "cloudflare_ruleset" "cf_managed_ruleset" {
         action  = "log"
         enabled = true
       }
+    }
+  }
+  dynamic "rules" {
+    for_each = var.owasp_rule_overrides
+    content {
+      action = rules.value.action == null ? "skip" : rules.value.action
+      action_parameters {
+        rules = { "4814384a9e5d4991b9815dcfc25d2f1f" = join(",", [for id in rules.value.rules : local.cloudflare_owasp_ruleset[id]])}
+      }
+      description = rules.value.description
+      expression = rules.value.expression
+      logging {
+      enabled = false
+    }
+    }
+  }
+  dynamic "rules" {
+    for_each = var.cf_rule_overrides
+    content {
+      action = rules.value.action == null ? "skip" : rules.value.action
+      action_parameters {
+        rules = { "efb7b8c949ac4650a09736fc376e9aee" = join(",", [for id in rules.value.rules : local.cf_managed_ruleset[id]])}
+      }
+      description = rules.value.description
+      expression = rules.value.expression
+      logging {
+      enabled = false
+    }
     }
   }
   lifecycle {
