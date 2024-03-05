@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.5.3...v2.6.0) (2024-03-05)
+
+
+### Features
+
+* Adding new examples and waf exceptions ([74b0764](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/74b0764480c583f0a67a5f37fb6e028bfa5a6665))
+
 ## [2.5.3](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.5.2...v2.5.3) (2023-11-20)
 
 
