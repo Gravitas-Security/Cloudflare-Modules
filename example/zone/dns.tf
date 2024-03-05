@@ -1,17 +1,15 @@
 module "dns_zones" {
-  source = "github.com/cyberviking949/cloudflare-modules//dns?ref=v1.0.0"
+  source = "github.com/cyberviking949/cloudflare-modules//dns?ref=v2.6.0"
 
   domain     = "example.com"
   type       = "full"
   plan       = "pro"
-  account_id = "ekgvijaelroijvhneadsloikvhnaerdflohijv"
 
 
   records = {
     "example_com_wild" = {
       name    = "*"
       value   = "something.something.com"
-      type    = "CNAME"
       proxied = true
     }
     "example_com_root" = {
@@ -23,7 +21,6 @@ module "dns_zones" {
     "www" = {
       name    = "www"
       value   = "something.something.com"
-      type    = "CNAME"
       proxied = true
     }
     "mx" = {
@@ -45,13 +42,11 @@ module "dns_zones" {
     "selector1._domainkey" = {
       name    = "selector1._domainkey"
       value   = "stuff.onmicrosoft.com"
-      type    = "CNAME"
       proxied = false
     }
     "selector2._domainkey" = {
       name    = "selector2._domainkey"
       value   = "stuff.onmicrosoft.com"
-      type    = "CNAME"
       proxied = false
     }
   }
