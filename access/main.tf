@@ -15,7 +15,7 @@ resource "cloudflare_access_group" "group" {
     }
   }
   lifecycle {
-    ignore_changes = [id]
+    ignore_changes = [id, zone_id]
   }
 }
 
@@ -25,6 +25,9 @@ resource "cloudflare_access_application" "access_app" {
   domain     = "${each.key}.${var.domain}"
   name       = each.key
   depends_on = [cloudflare_access_group.group]
+  lifecycle {
+    ignore_changes = [zone_id]
+  }
 }
 
 resource "cloudflare_healthcheck" "app_healthchecks" {
@@ -68,6 +71,9 @@ resource "cloudflare_access_policy" "app_policy" {
       group = [cloudflare_access_group.group[each.value.group].id]
       #everyone          = try(each.value.everyone, null)
     }
+  }
+  lifecycle {
+    ignore_changes = [ zone_id ]
   }
   depends_on = [cloudflare_access_application.access_app]
 }

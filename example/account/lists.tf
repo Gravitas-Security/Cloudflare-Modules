@@ -1,5 +1,5 @@
 module "lists" {
-  source       = "github.com/cyberviking949/cloudflare-modules//lists?ref=v2.1.0"
+  source       = "github.com/cyberviking949/cloudflare-modules//lists?ref=v2.6.0"
   account_name = "account name"
 
   account_lists = [

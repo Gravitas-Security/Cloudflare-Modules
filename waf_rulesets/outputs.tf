@@ -22,3 +22,8 @@ output "cloudflare_managed_ruleset_rules" {
   description = "OWASP rules applied to rulesets"
   value       = local.cf_managed_ruleset
 }
+
+# output "cloudflare_managed_all_ruleset_rules" {
+#   description = "OWASP rules applied to rulesets"
+#   value       = local.all_managed_ruleset
+# }

@@ -1,5 +1,5 @@
 module "account_users" {
-  source = "github.com/cyberviking949/cloudflare-modules//account_members?ref=v2.2.0"
+  source = "github.com/cyberviking949/cloudflare-modules//account_members?ref=v2.6.0"
   members = {
     ////////////////////// Security Team ///////////////////////////////
     "securityperson@example.com" = {

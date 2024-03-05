@@ -1,6 +1,6 @@
 
 module "healthchecks" {
-  source = "github.com/cyberviking949/cloudflare-modules//healthchecks?ref=v1.0.0"
+  source = "github.com/cyberviking949/cloudflare-modules//healthchecks?ref=v2.6.0"
 
   domain     = "zone name"
   depends_on = [module.dns_zones]
