@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.1](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.7.0...v2.7.1) (2024-11-08)
+
+
+### Bug Fixes
+
+* fixing output ([fc741ad](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/fc741ad3dfebb3292057196c0df9add02601c3a8))
+
 ## [2.7.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.6.0...v2.7.0) (2024-11-08)
 
 
