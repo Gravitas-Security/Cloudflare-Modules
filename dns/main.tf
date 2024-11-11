@@ -39,7 +39,7 @@ resource "cloudflare_record" "records" {
   zone_id  = cloudflare_zone.domain.id
   name     = each.value.name
   priority = try(each.value.priority, null)
-  value    = try(each.value.value, null)
+  content  = try(each.value.content, "")
   type     = lookup(each.value, "type", null) != null ? lookup(each.value, "type") : "CNAME"
   proxied  = lookup(each.value, "proxied", null) != null ? lookup(each.value, "proxied") : true
   dynamic "data" {
@@ -102,18 +102,19 @@ resource "cloudflare_turnstile_widget" "zone_enable" {
 }
 
 
-/*resource "cloudflare_certificate_pack" "universal" {
-  zone_id               = cloudflare_zone.domain.id
-  type                  = "advanced"
-  hosts                 = ["${cloudflare_zone.domain.0.zone}", "*.${cloudflare_zone.domain.0.zone}"]
-  validation_method     = "txt"
-  validity_days         = 90
-  certificate_authority = "lets_encrypt"
-  cloudflare_branding   = false
-  depends_on = [
-    cloudflare_zone.domain
-  ]
-  lifecycle {
-    create_before_destroy = true
-  }
-}*/
+# resource "cloudflare_certificate_pack" "universal" {
+#   count = var.plan == "enterprise" ? 1 : 0
+#   zone_id               = cloudflare_zone.domain.id
+#   type                  = "advanced"
+#   hosts                 = ["${cloudflare_zone.domain.0.zone}", "*.${cloudflare_zone.domain.0.zone}"]
+#   validation_method     = "txt"
+#   validity_days         = 90
+#   certificate_authority = "lets_encrypt"
+#   cloudflare_branding   = false
+#   depends_on = [
+#     cloudflare_zone.domain
+#   ]
+#   lifecycle {
+#     create_before_destroy = true
+#   }
+# }
