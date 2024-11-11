@@ -58,7 +58,7 @@ resource "cloudflare_record" "pages_record" {
   zone_id     = data.cloudflare_zone.zone[each.key].id
   name        = each.value.name
   type        = "CNAME"
-  value       = cloudflare_pages_project.pages_source_config[each.key].subdomain
+  content     = cloudflare_pages_project.pages_source_config[each.key].subdomain
   proxied     = true
   depends_on = [ cloudflare_pages_domain.pages_domain ]
 }

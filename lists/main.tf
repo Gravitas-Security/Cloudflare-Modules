@@ -22,7 +22,7 @@ resource "cloudflare_list" "lists" {
   }
 }
 
-resource "cloudflare_teams_list" "teams_lists" {
+resource "cloudflare_zero_trust_list" "teams_lists" {
   account_id  = data.cloudflare_accounts.account.accounts.0.id
   for_each    = { for cf_list in var.teams_lists : cf_list.name => cf_list }
   name        = each.value.name
