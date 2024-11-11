@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.7.1...v2.8.0) (2024-11-11)
+
+
+### Features
+
+* Adding turnstile widget to zone configs ([68367da](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/68367da5a872e75cd58a6c3c23d967d1c4a5afc3))
+
 ## [2.7.1](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.7.0...v2.7.1) (2024-11-08)
 
 
