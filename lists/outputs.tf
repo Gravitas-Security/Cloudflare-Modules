@@ -5,5 +5,5 @@ output "lists" {
 
 output "teams_lists" {
   description = "Created Cloudflare lists for teams."
-  value       = cloudflare_teams_list.teams_lists
+  value       = cloudflare_zero_trust_list.teams_lists
 }
