@@ -92,6 +92,16 @@ resource "cloudflare_record" "records" {
   ]
 }
 
+resource "cloudflare_turnstile_widget" "zone_enable" {
+  account_id = data.cloudflare_accounts.account.accounts.0.id
+  name           = "${var.domain} - Turnstile"
+  bot_fight_mode = false
+  domains        = [var.domain]
+  mode           = "invisible"
+  region         = "world"
+}
+
+
 /*resource "cloudflare_certificate_pack" "universal" {
   zone_id               = cloudflare_zone.domain.id
   type                  = "advanced"
