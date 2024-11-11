@@ -2,7 +2,7 @@ data "cloudflare_accounts" "account" {
   name = var.account_name
 }
 
-resource "cloudflare_teams_rule" "gateway_policies" {
+resource "cloudflare_zero_trust_gateway_policy" "gateway_policies" {
   for_each    = { for gw in var.gw_policies : gw.name => gw }
   account_id  = data.cloudflare_accounts.account.accounts.0.id
   name        = each.value.name

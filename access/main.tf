@@ -4,7 +4,7 @@ data "cloudflare_zones" "zones" {
   }
 }
 
-resource "cloudflare_access_group" "group" {
+resource "cloudflare_zero_trust_access_group" "group" {
   for_each = { for group in var.group : group.name => group }
   zone_id  = data.cloudflare_zones.zones.zones[0].id
   name     = each.value.name
@@ -19,12 +19,12 @@ resource "cloudflare_access_group" "group" {
   }
 }
 
-resource "cloudflare_access_application" "access_app" {
+resource "cloudflare_zero_trust_access_application" "access_app" {
   for_each   = { for app in var.application : app.name => app }
   zone_id    = data.cloudflare_zones.zones.zones[0].id
   domain     = "${each.key}.${var.domain}"
   name       = each.key
-  depends_on = [cloudflare_access_group.group]
+  depends_on = [cloudflare_zero_trust_access_group.group]
   lifecycle {
     ignore_changes = [zone_id]
   }
@@ -34,7 +34,7 @@ resource "cloudflare_healthcheck" "app_healthchecks" {
   for_each            = local.apps_with_hc
   zone_id             = data.cloudflare_zones.zones.zones[0].id
   name                = "${each.key}.${var.domain}_Healthcheck"
-  address             = cloudflare_access_application.access_app[each.key].domain
+  address             = cloudflare_zero_trust_access_application.access_app[each.key].domain
   path                = each.value.hc_path
   type                = "HTTPS"
   port                = each.value.hc_port != null ? each.value.hc_port : 443
@@ -48,7 +48,7 @@ resource "cloudflare_healthcheck" "app_healthchecks" {
   interval            = 60
   consecutive_fails   = 3
   consecutive_successes = 2
-  depends_on          = [cloudflare_access_application.access_app]
+  depends_on          = [cloudflare_zero_trust_access_application.access_app]
 
 lifecycle {
   ignore_changes = [ zone_id ]
@@ -57,10 +57,10 @@ lifecycle {
 
 
 
-resource "cloudflare_access_policy" "app_policy" {
+resource "cloudflare_zero_trust_access_policy" "app_policy" {
   for_each       = { for app in var.application : app.name => app }
   zone_id        = data.cloudflare_zones.zones.zones[0].id
-  application_id = cloudflare_access_application.access_app[each.key].id
+  application_id = cloudflare_zero_trust_access_application.access_app[each.key].id
   name           = "${each.key}.${var.domain} Access Policy"
   decision       = (each.value.decision) == null ? "allow" : each.value.action
   precedence     = index(var.application, each.value) + 1
@@ -68,12 +68,12 @@ resource "cloudflare_access_policy" "app_policy" {
     for_each = try(each.value, null) != null ? [each.value] : []
     content {
       #login_method      = try(each.value.login_method, null)
-      group = [cloudflare_access_group.group[each.value.group].id]
+      group = [cloudflare_zero_trust_access_group.group[each.value.group].id]
       #everyone          = try(each.value.everyone, null)
     }
   }
   lifecycle {
     ignore_changes = [ zone_id ]
   }
-  depends_on = [cloudflare_access_application.access_app]
+  depends_on = [cloudflare_zero_trust_access_application.access_app]
 }
