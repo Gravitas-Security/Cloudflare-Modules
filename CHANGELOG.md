@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.8.0...v2.9.0) (2024-11-11)
+
+
+### Features
+
+* provider update ([f42fad1](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/f42fad1f21e974485576a0a63bf94a604fb6e1c9))
+
 ## [2.8.0](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.7.1...v2.8.0) (2024-11-11)
 
 
