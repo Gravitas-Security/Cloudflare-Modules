@@ -39,7 +39,7 @@ resource "cloudflare_record" "records" {
   zone_id  = cloudflare_zone.domain.id
   name     = each.value.name
   priority = try(each.value.priority, null)
-  content  = try(each.value.content, "")
+  value    = try(each.value.content, "")
   type     = lookup(each.value, "type", null) != null ? lookup(each.value, "type") : "CNAME"
   proxied  = lookup(each.value, "proxied", null) != null ? lookup(each.value, "proxied") : true
   dynamic "data" {
