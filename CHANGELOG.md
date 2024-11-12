@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.9.2](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.9.1...v2.9.2) (2024-11-12)
+
+
+### Bug Fixes
+
+* correcting dns value ([48e09d5](https://github.com/Gravitas-Security/Cloudflare-Modules/commit/48e09d559cf2683a6f9db28165600ad8f41d82d2))
+
 ## [2.9.1](https://github.com/Gravitas-Security/Cloudflare-Modules/compare/v2.9.0...v2.9.1) (2024-11-11)
 
 
